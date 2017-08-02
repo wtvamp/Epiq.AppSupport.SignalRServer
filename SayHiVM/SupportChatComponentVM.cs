@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using DotNetify;
+using Newtonsoft.Json;
+using SayHiVM;
+
 namespace ViewModels
 {
     public class SupportChatMessage
     {
-        public int Id;
+        [JsonProperty(PropertyName = "id")]
+        public string Id;
+        [JsonProperty(PropertyName = "Id")]
+        public string id;
         public int type;
         public string image;
         public string text;
@@ -17,28 +24,32 @@ namespace ViewModels
     {
         List<SupportChatMessage> GetAll();
 
-        int Add(SupportChatMessage newMesssage);
+        string Add(SupportChatMessage newMesssage);
     }
 
     public class ListSupportMessageService : ISupportMessageService
     {
         private List<SupportChatMessage> _allChatMessages;
-        private int idCount = 2;
 
         public ListSupportMessageService()
         {
+            var newId = "5da2854c-ef7c-4238-8329-cad5104a6160";
+            var newId2 = "3b02a287-fe80-48fc-9e58-57fd330c8366";
+
             _allChatMessages = new List<SupportChatMessage>()
             {
                 new SupportChatMessage()
                 {
-                    Id = 0,
+                    Id = newId,
+                    id = newId2,
                     image = "https://upload.wikimedia.org/wikipedia/en/1/17/Batman-BenAffleck.jpg",
                     text = "This is Batman...",
                     type = 0
                 },
                 new SupportChatMessage()
                 {
-                    Id = 1,
+                    Id = newId,
+                    id = newId2,
                     image = "https://www.redbulletin.com/sites/default/files/styles/sharing-thumbnail/public/images/article-thumbnail-smartphone/joker_1.jpg?itok=gwMU6YAY",
                     text = "Hey Bats!  I'd like to report an accident with a little bird.",
                     type = 1
@@ -46,10 +57,11 @@ namespace ViewModels
             };
         }
 
-        public int Add(SupportChatMessage newMesssage)
+        public string Add(SupportChatMessage newMesssage)
         {
-            newMesssage.Id = idCount;
-            idCount++;
+            var newId = Guid.NewGuid().ToString();
+            newMesssage.Id = newId;
+            newMesssage.id = newId;
             _allChatMessages.Add(newMesssage);
             return newMesssage.Id;
         }
@@ -70,9 +82,11 @@ namespace ViewModels
         /// </summary>
         public Action<SupportChatMessage> Add => chatMessage =>
         {
+            var newId = _supportMessageService.Add(chatMessage);
             this.AddList(nameof(messages), new SupportChatMessage()
             {
-                Id = _supportMessageService.Add(chatMessage),
+                Id = newId,
+                id = newId,
                 type = chatMessage.type,
                 text = chatMessage.text,
                 image = chatMessage.image
@@ -92,6 +106,7 @@ namespace ViewModels
         public IEnumerable<SupportChatMessage> messages => _supportMessageService.GetAll().Select(i => new SupportChatMessage()
         {
             Id = i.Id,
+            id = i.id,
             type = i.type,
             text = i.text,
             image = i.image
@@ -101,7 +116,7 @@ namespace ViewModels
 
         public SupportChatComponentVM()
         {
-            _supportMessageService = new ListSupportMessageService();
+            _supportMessageService = new CosmosDbMessageService();
         }
 
     }
