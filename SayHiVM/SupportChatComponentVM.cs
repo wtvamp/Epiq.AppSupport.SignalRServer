@@ -91,6 +91,8 @@ namespace ViewModels
                 text = chatMessage.text,
                 image = chatMessage.image
             });
+            Changed(nameof(messages));
+            PushUpdates();
         };
 
         /// <summary>
@@ -113,10 +115,16 @@ namespace ViewModels
         });
 
         private readonly ISupportMessageService _supportMessageService;
-
+        private Timer _timer;
         public SupportChatComponentVM()
         {
             _supportMessageService = new CosmosDbMessageService();
+
+            _timer = new Timer(state =>
+            {
+                Changed(nameof(messages));
+                PushUpdates();
+            }, null, 0, 1000); // every 1000 ms.
         }
 
     }
