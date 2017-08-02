@@ -32,15 +32,15 @@ namespace ViewModels
                 new SupportChatMessage()
                 {
                     Id = 0,
-                    image = "http://lorempixel.com/50/50/cats/",
-                    text = "Hello! Good Morning!",
+                    image = "https://upload.wikimedia.org/wikipedia/en/1/17/Batman-BenAffleck.jpg",
+                    text = "This is Batman...",
                     type = 0
                 },
                 new SupportChatMessage()
                 {
                     Id = 1,
-                    image = "http://lorempixel.com/50/50/animals/",
-                    text = "Hello to you! Good Morning!",
+                    image = "https://www.redbulletin.com/sites/default/files/styles/sharing-thumbnail/public/images/article-thumbnail-smartphone/joker_1.jpg?itok=gwMU6YAY",
+                    text = "Hey Bats!  I'd like to report an accident with a little bird.",
                     type = 1
                 }
             };
