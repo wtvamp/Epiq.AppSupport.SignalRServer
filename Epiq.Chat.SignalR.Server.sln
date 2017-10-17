@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SayHiVM", "SayHiVM\SayHiVM.csproj", "{82F2B45D-2E56-4A03-968B-CFDAD3A626D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epiq.Chat.SignalR.Server", "SayHiVM\Epiq.Chat.SignalR.Server.csproj", "{82F2B45D-2E56-4A03-968B-CFDAD3A626D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {803EAF5D-3711-4E7D-A176-4C343660BA5B}
 	EndGlobalSection
 EndGlobal

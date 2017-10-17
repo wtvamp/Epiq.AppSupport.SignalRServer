@@ -7,7 +7,7 @@ using DotNetify;
 using Newtonsoft.Json;
 using SayHiVM;
 
-namespace ViewModels
+namespace Epiq.Chat.SignalR.Server
 {
     public class SupportChatMessage
     {

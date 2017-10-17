@@ -6,14 +6,13 @@ using System.Net;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Newtonsoft.Json;
-using ViewModels;
 
-namespace SayHiVM
+namespace Epiq.Chat.SignalR.Server
 {
     public class CosmosDbMessageService: ISupportMessageService
     {
         private const string EndpointUrl = "https://epiqchat.documents.azure.com:443/";
-        private const string PrimaryKey = "g18RgWhceFHR5Ii9uXYOvaD7JViQvXnibugZbn0OFJHsw0rKeUcIuUmuwDVZD7xZ3yv5LAK4tnklEpX0KFOa1w==";
+        private const string PrimaryKey = "ExAxlpEBLfmAgtd67EOLh1Mx3DkEd6JquDtbEwrrQjWN5IcnNIn1ycaOpDaWlMavMAFXqWOum6uVlumlTWwuFA==";
         private DocumentClient client;
 
         public CosmosDbMessageService()
