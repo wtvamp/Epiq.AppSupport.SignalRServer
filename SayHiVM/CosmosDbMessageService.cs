@@ -37,7 +37,7 @@ namespace Epiq.Chat.SignalR.Server
             {
                 Id = newId,
                 id = newId2,
-                image = "https://www.redbulletin.com/sites/default/files/styles/sharing-thumbnail/public/images/article-thumbnail-smartphone/joker_1.jpg?itok=gwMU6YAY",
+                image = "http://www.funfacemaster.com/fun-face/photos/541de99a4823e615.jpg",
                 text = "Hey Bats!  I'd like to report an accident with a little bird.",
                 type = 1
             });
